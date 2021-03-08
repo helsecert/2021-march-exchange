@@ -31,10 +31,20 @@ Webshellsøk
 PowerShell-script fra CERT-LV for å oppdage webshells: 
 https://github.com/cert-lv/exchange_webshell_detection/blob/main/detect_webshells.ps1
 
+Powershell-onliner for å oppdage nylig opprettede .aspx-filer, som ofte vil være tilfellet for webshell:
+```powershell
+Get-ChildItem -Path 'C:' -Filter *.aspx -Recurse -ErrorAction SilentlyContinue | ? {$_.LastWriteTime -gt (Get-Date).AddDays(-10)}
+```
+
 Loggsøk, passorddumper, zip-filer
 ------
 PowerShell-script for å søke etter indikatorer på utnyttelse av CVE-2021-26855, 26858, 26857 og 27065, samt etter LSASS-dumps:
 https://github.com/microsoft/CSS-Exchange/blob/main/Security/Test-ProxyLogon.ps1
+
+Powershell-online for å søke på tvers av logger, eksempelvis for requestIDer eller IP-adresser:
+```powershell
+Get-ChildItem -Recurse -Path "C:\Program Files\Microsoft\Exchange Server\V15\Logging" -Filter '*.log' | % { $content = get-content -path $_.fullname | select-string 'søkestreng'; if($content) {write-host $_.fullname; $content; write-output '-----'   }  }
+```
 
 Nye brukere
 ------
