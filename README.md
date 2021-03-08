@@ -35,6 +35,7 @@ Powershell-onliner for å oppdage nylig opprettede .aspx-filer, som ofte vil væ
 ```powershell
 Get-ChildItem -Path 'C:' -Filter *.aspx -Recurse -ErrorAction SilentlyContinue | ? {$_.LastWriteTime -gt (Get-Date).AddDays(-10)}
 ```
+Generelt kan vi anbefale å varsle om nyopprettede/endrede filer i web-mapper (både aspx-filer og andre) og sammenlikne dette med endringskalender for virksomheten. Nye filer og endringer i filer som ikke ellers kan forklares bør undersøkes grundig. Om man f.eks. har Sysmon installert og config justert riktig kan man søke etter Eventcode 11 og filepath C:\inetpub\wwwroot*.
 
 Loggsøk, passorddumper, zip-filer
 ------
