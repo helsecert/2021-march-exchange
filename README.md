@@ -54,7 +54,7 @@ PowerShell-script for å hente ut brukere opprettet siste 30 dager (hentet fra h
 Import-Module -Name ActiveDirectory
 $date = (get-Date).tostring()
 $month = (Get-Date).AddDays(-30)
-$ADuserInmonth = Get-ADUser -Filter * -Properties whencreated | where { $_.whenCreated -ge $month } | select name,whenCreated
+Get-ADUser -Filter * -Properties whencreated | where { $_.whenCreated -ge $month } | select name,whenCreated
 ```
 
 
