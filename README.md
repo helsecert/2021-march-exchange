@@ -4,6 +4,8 @@ Info
 ====
 Et repo som samler litt nyttig informasjon ifm. Microsoft Exchange-sårbarheter og angrepskampanje JAN - MAR 2021.
 
+_Edit 2021-03-10 11:00: Lagt til `-Force` på PowerShell-kommandoer_
+
 
 Ekstern informasjon
 ======
@@ -33,7 +35,7 @@ https://github.com/cert-lv/exchange_webshell_detection/blob/main/detect_webshell
 
 Powershell-onliner for å oppdage nylig opprettede .aspx-filer, som ofte vil være tilfellet for webshell:
 ```powershell
-Get-ChildItem -Path 'C:' -Filter *.aspx -Recurse -ErrorAction SilentlyContinue | ? {$_.LastWriteTime -gt (Get-Date).AddDays(-10)}
+Get-ChildItem -Force -Path 'C:' -Filter *.aspx -Recurse -ErrorAction SilentlyContinue | ? {$_.LastWriteTime -gt (Get-Date).AddDays(-10)}
 ```
 Generelt kan vi anbefale å varsle om nyopprettede/endrede filer i web-mapper (både aspx-filer og andre) og sammenlikne dette med endringskalender for virksomheten. Nye filer og endringer i filer som ikke ellers kan forklares bør undersøkes grundig. Om man f.eks. har Sysmon installert og config justert riktig kan man søke etter Eventcode 11 og filepath C:\inetpub\wwwroot*.
 
@@ -44,7 +46,7 @@ https://github.com/microsoft/CSS-Exchange/blob/main/Security/Test-ProxyLogon.ps1
 
 Powershell-online for å søke på tvers av logger, eksempelvis for requestIDer eller IP-adresser:
 ```powershell
-Get-ChildItem -Recurse -Path "C:\Program Files\Microsoft\Exchange Server\V15\Logging" -Filter '*.log' | % { $content = get-content -path $_.fullname | select-string 'søkestreng'; if($content) {write-host $_.fullname; $content; write-output '-----'   }  }
+Get-ChildItem -Force -Recurse -Path "C:\Program Files\Microsoft\Exchange Server\V15\Logging" -Filter '*.log' | % { $content = get-content -path $_.fullname | select-string 'søkestreng'; if($content) {write-host $_.fullname; $content; write-output '-----'   }  }
 ```
 
 Nye brukere
