@@ -19,6 +19,8 @@ Scripts / verktøy
 =======
 Filhashverifisering
 -------
+*OBS!* Dette scriptet kan gi falske positiver på en del Javascript-filer. *OBS!*
+
 PowerShell-skript fra Microsoft for å sammenligne hasher på lokal server mot verifiserte hasher fra Microsoft:
 https://github.com/microsoft/CSS-Exchange/blob/main/Security/CompareExchangeHashes.ps1
 
