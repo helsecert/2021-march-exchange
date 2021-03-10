@@ -4,6 +4,7 @@ Info
 ====
 Et repo som samler litt nyttig informasjon ifm. Microsoft Exchange-sårbarheter og angrepskampanje JAN - MAR 2021.
 
+_Edit 2021-03-10 13:35: Lagt til PS-skript for å sammenligne hasher fra Microsoft_
 _Edit 2021-03-10 11:00: Lagt til `-Force` på PowerShell-kommandoer_
 
 
@@ -16,6 +17,13 @@ https://www.volexity.com/blog/2021/03/02/active-exploitation-of-microsoft-exchan
 
 Scripts / verktøy
 =======
+Filhashverifisering
+-------
+PowerShell-skript fra Microsoft for å sammenligne hasher på lokal server mot verifiserte hasher fra Microsoft:
+https://github.com/microsoft/CSS-Exchange/blob/main/Security/CompareExchangeHashes.ps1
+
+For å kjøre skriptet over trenger man å hente ned baseline-filene fra samme repo, her:
+https://github.com/microsoft/CSS-Exchange/tree/main/Security/Baselines
 
 Nettverksskanning
 -------
