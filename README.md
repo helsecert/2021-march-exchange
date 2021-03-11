@@ -8,6 +8,7 @@ _Edit 2021-03-10 13:35: Lagt til PS-skript for å sammenligne hasher fra Microso
 
 _Edit 2021-03-10 11:00: Lagt til `-Force` på PowerShell-kommandoer_
 
+_Edit 2021-03-11 10:40: Lagt loggdata fra reell hendelse_
 
 Ekstern informasjon
 ======
@@ -28,22 +29,27 @@ Filhashverifisering
 *OBS!* Dette scriptet kan gi falske positiver på en del Javascript-filer. *OBS!*
 
 PowerShell-skript fra Microsoft for å sammenligne hasher på lokal server mot verifiserte hasher fra Microsoft:
+
 https://github.com/microsoft/CSS-Exchange/tree/main/Security#compareexchangehashesps1
 
 Nettverksskanning
 -------
 nmap-script fra Microsoft for å oppdage sårbar Exchange:
+
 https://github.com/microsoft/CSS-Exchange/tree/main/Security#http-vuln-cve2021-26855nse
 
 Quickfix
 ------
 PowerShell-script for å mitigere SSRF-sårbarheten som ble brukt i angrepskampanjen:
+
 https://github.com/microsoft/CSS-Exchange/tree/main/Security#backendcookiemitigationps1
+
 OBS: Vi anbefaler oppdatering så fort det lar seg gjøre. Dette er et sikringstiltak fram til oppdatering er gjennomført.
 
 Webshellsøk
 ------
 PowerShell-script fra CERT-LV for å oppdage webshells: 
+
 https://github.com/cert-lv/exchange_webshell_detection/blob/main/detect_webshells.ps1
 
 Powershell-onliner for å oppdage nylig opprettede .aspx-filer, som ofte vil være tilfellet for webshell:
@@ -55,6 +61,7 @@ Generelt kan vi anbefale å varsle om nyopprettede/endrede filer i web-mapper (b
 Loggsøk, passorddumper, zip-filer
 ------
 PowerShell-script for å søke etter indikatorer på utnyttelse av CVE-2021-26855, 26858, 26857 og 27065, samt etter LSASS-dumps:
+
 https://github.com/microsoft/CSS-Exchange/tree/main/Security#test-proxylogonps1
 
 Powershell-online for å søke på tvers av logger, eksempelvis for requestIDer eller IP-adresser:
@@ -75,7 +82,9 @@ Get-ADUser -Filter * -Properties whencreated | where { $_.whenCreated -ge $month
 Stand-alone malwarescanner fra Microsoft:
 ------
 https://docs.microsoft.com/en-us/windows/security/threat-protection/intelligence/safety-scanner-download
+
 Instruksjoner for bruk av Microsoft Safety Scanner:
+
 https://github.com/microsoft/CSS-Exchange/blob/main/Security/Defender-MSERT-Guidance.md
 
 
